@@ -14,6 +14,14 @@ text-align:center;
 }
 header h1{font-size:48px;}
 header p{font-size:20px;margin:15px 0;}
+.profile-img{
+width:130px;
+height:130px;
+border-radius:50%;
+object-fit:cover;
+border:3px solid #fff;
+margin-bottom:15px;
+}
 .btn{
 display:inline-block;
 padding:12px 25px;
@@ -23,6 +31,10 @@ text-decoration:none;
 border-radius:30px;
 font-weight:bold;
 margin-top:15px;
+transition:.3s;
+}
+.btn:hover{
+background:#f0f0f0;
 }
 section{
 max-width:1000px;
@@ -50,9 +62,11 @@ padding:20px;
 border-radius:10px;
 text-align:center;
 transition:.3s;
+border:1px solid #30363d;
 }
 .skill:hover{
 transform:translateY(-5px);
+border-color:#58a6ff;
 }
 .projects{
 display:grid;
@@ -63,6 +77,7 @@ gap:20px;
 background:#161b22;
 padding:20px;
 border-radius:12px;
+border:1px solid #30363d;
 }
 .card h3{
 color:#58a6ff;
@@ -73,15 +88,19 @@ text-align:center;
 padding:20px;
 background:#161b22;
 margin-top:40px;
+border-top:1px solid #30363d;
 }
+a{color:#58a6ff;text-decoration:none;}
+a:hover{text-decoration:underline;}
 </style>
 </head>
 <body>
 
 <header>
+<img class="profile-img" src="https://github.com/azeemcyber07.png" alt="Azeem Rasheed">
 <h1>Azeem Rasheed</h1>
 <p>BS Cyber Security Student | Future SOC Analyst</p>
-<a class="btn" href="https://github.com/azeemcyber07">GitHub</a>
+<a class="btn" href="https://github.com/azeemcyber07" target="_blank">GitHub Profile</a>
 </header>
 
 <section>
@@ -89,18 +108,19 @@ margin-top:40px;
 <div class="about">
 <p>
 I am a BS Cyber Security student passionate about Networking,
-Linux, CCNA, GitHub and Ethical Hacking.
+CCNA, GitHub, and Ethical Hacking.
 I enjoy learning new technologies and building practical projects.
 </p>
 </div>
 </section>
-   <section>
+
+<section>
 <h2>Skills</h2>
 <div class="skills">
 <div class="skill"><h3>Cyber Security</h3></div>
 <div class="skill"><h3>C++</h3></div>
 <div class="skill"><h3>Git & GitHub</h3></div>
-<div class="skill"><h3>Linux</h3></div>
+<div class="skill"><h3>Linux (Basics)</h3></div>
 <div class="skill"><h3>CCNA (Learning)</h3></div>
 <div class="skill"><h3>Networking</h3></div>
 </div>
@@ -126,9 +146,9 @@ I enjoy learning new technologies and building practical projects.
 <section>
 <h2>Contact</h2>
 <div class="contact">
-<p><strong>Email:</strong> Coming Soon</p>
+<p><strong>Email:</strong> <a href="mailto:ah3892888@gmail.com">ah3892888@gmail.com</a></p>
 <p><strong>GitHub:</strong>
-<a href="https://github.com/azeemcyber07" style="color:#58a6ff;">
+<a href="https://github.com/azeemcyber07" target="_blank">
 github.com/azeemcyber07
 </a>
 </p>
@@ -140,5 +160,4 @@ github.com/azeemcyber07
 </footer>
 
 </body>
-</html> 
-    
+</html>
