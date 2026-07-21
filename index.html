@@ -1,73 +1,144 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Azeem Rasheed | Portfolio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #0d1117;
-            color: #c9d1d9;
-            text-align: center;
-            padding: 40px 20px;
-            margin: 0;
-        }
-        .card {
-            background: #161b22;
-            padding: 30px;
-            border-radius: 10px;
-            max-width: 700px;
-            margin: auto;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-        }
-        img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 15px;
-            border: 2px solid #58a6ff;
-        }
-        h1, h2, h3 {
-            color: #58a6ff;
-        }
-        a {
-            color: #58a6ff;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Azeem Rasheed | Portfolio</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+body{background:#0d1117;color:#fff;line-height:1.6;}
+header{
+background:linear-gradient(135deg,#0d6efd,#00c6ff);
+padding:60px 20px;
+text-align:center;
+}
+header h1{font-size:48px;}
+header p{font-size:20px;margin:15px 0;}
+.btn{
+display:inline-block;
+padding:12px 25px;
+background:#fff;
+color:#0d6efd;
+text-decoration:none;
+border-radius:30px;
+font-weight:bold;
+margin-top:15px;
+}
+section{
+max-width:1000px;
+margin:auto;
+padding:50px 20px;
+}
+h2{
+text-align:center;
+margin-bottom:30px;
+color:#58a6ff;
+}
+.about,.contact{
+background:#161b22;
+padding:30px;
+border-radius:12px;
+}
+.skills{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+}
+.skill{
+background:#161b22;
+padding:20px;
+border-radius:10px;
+text-align:center;
+transition:.3s;
+}
+.skill:hover{
+transform:translateY(-5px);
+}
+.projects{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
+}
+.card{
+background:#161b22;
+padding:20px;
+border-radius:12px;
+}
+.card h3{
+color:#58a6ff;
+margin-bottom:10px;
+}
+footer{
+text-align:center;
+padding:20px;
+background:#161b22;
+margin-top:40px;
+}
+</style>
 </head>
 <body>
 
+<header>
+<h1>Azeem Rasheed</h1>
+<p>BS Cyber Security Student | Future SOC Analyst</p>
+<a class="btn" href="https://github.com/azeemcyber07">GitHub</a>
+</header>
+
+<section>
+<h2>About Me</h2>
+<div class="about">
+<p>
+I am a BS Cyber Security student passionate about Networking,
+Linux, CCNA, GitHub and Ethical Hacking.
+I enjoy learning new technologies and building practical projects.
+</p>
+</div>
+</section>
+   <section>
+<h2>Skills</h2>
+<div class="skills">
+<div class="skill"><h3>Cyber Security</h3></div>
+<div class="skill"><h3>C++</h3></div>
+<div class="skill"><h3>Git & GitHub</h3></div>
+<div class="skill"><h3>Linux</h3></div>
+<div class="skill"><h3>CCNA (Learning)</h3></div>
+<div class="skill"><h3>Networking</h3></div>
+</div>
+</section>
+
+<section>
+<h2>Projects</h2>
+<div class="projects">
+
 <div class="card">
-    <img src="https://github.com/azeemcyber07.png" alt="Azeem Rasheed">
-
-    <h1>Azeem Rasheed</h1>
-    <h2>BS Cyber Security Student</h2>
-
-    <p>
-        I am a Cyber Security student passionate about networking, 
-        ethical hacking, and security operations. I enjoy building practical projects 
-        and continuously expanding my technical skillset.
-    </p>
-
-    <hr style="border: 0.5px solid #30363d; margin: 20px 0;">
-
-    <h3>Skills</h3>
-    <p>Cyber Security • C++ • Git • GitHub • CCNA (Learning)</p>
-
-    <h3>Projects</h3>
-    <p>🔹 <strong>Password Generator:</strong> Built using C++</p>
-
-    <h3>Contact</h3>
-    <p>Email: <a href="mailto:ah3892888@gmail.com">ah3892888@gmail.com</a></p>
-    <p>GitHub: <a href="https://github.com/azeemcyber07" target="_blank">github.com/azeemcyber07</a></p>
+<h3>Password Generator</h3>
+<p>A C++ password generator that creates strong random passwords.</p>
 </div>
 
+<div class="card">
+<h3>Portfolio Website</h3>
+<p>My personal GitHub portfolio built using HTML and CSS.</p>
+</div>
+
+</div>
+</section>
+
+<section>
+<h2>Contact</h2>
+<div class="contact">
+<p><strong>Email:</strong> Coming Soon</p>
+<p><strong>GitHub:</strong>
+<a href="https://github.com/azeemcyber07" style="color:#58a6ff;">
+github.com/azeemcyber07
+</a>
+</p>
+</div>
+</section>
+
+<footer>
+<p>© 2026 Azeem Rasheed | All Rights Reserved</p>
+</footer>
+
 </body>
-</html>
+</html> 
+    
