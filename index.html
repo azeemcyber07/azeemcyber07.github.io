@@ -3,161 +3,434 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Azeem Rasheed | Portfolio</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
-body{background:#0d1117;color:#fff;line-height:1.6;}
-header{
-background:linear-gradient(135deg,#0d6efd,#00c6ff);
-padding:60px 20px;
-text-align:center;
-}
-header h1{font-size:48px;}
-header p{font-size:20px;margin:15px 0;}
-.profile-img{
-width:130px;
-height:130px;
-border-radius:50%;
-object-fit:cover;
-border:3px solid #fff;
-margin-bottom:15px;
-}
-.btn{
-display:inline-block;
-padding:12px 25px;
-background:#fff;
-color:#0d6efd;
-text-decoration:none;
-border-radius:30px;
-font-weight:bold;
-margin-top:15px;
-transition:.3s;
-}
-.btn:hover{
-background:#f0f0f0;
-}
-section{
-max-width:1000px;
-margin:auto;
-padding:50px 20px;
-}
-h2{
-text-align:center;
-margin-bottom:30px;
-color:#58a6ff;
-}
-.about,.contact{
-background:#161b22;
-padding:30px;
-border-radius:12px;
-}
-.skills{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
-}
-.skill{
-background:#161b22;
-padding:20px;
-border-radius:10px;
-text-align:center;
-transition:.3s;
-border:1px solid #30363d;
-}
-.skill:hover{
-transform:translateY(-5px);
-border-color:#58a6ff;
-}
-.projects{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:20px;
-}
-.card{
-background:#161b22;
-padding:20px;
-border-radius:12px;
-border:1px solid #30363d;
-}
-.card h3{
-color:#58a6ff;
-margin-bottom:10px;
-}
-footer{
-text-align:center;
-padding:20px;
-background:#161b22;
-margin-top:40px;
-border-top:1px solid #30363d;
-}
-a{color:#58a6ff;text-decoration:none;}
-a:hover{text-decoration:underline;}
-</style>
+<title>Azeem Rasheed | Cybersecurity & SOC Analyst Portfolio</title>
 <meta name="google-site-verification" content="11lwcCAqtleg0olQEfAuu__Ml9If-L7WntBMcMas7Kw" />
+<!-- FontAwesome Icons for Security & Tech Badges -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root {
+  --bg-main: #0b0f19;
+  --bg-card: #131b2e;
+  --bg-card-hover: #1c2742;
+  --accent-cyan: #00f2fe;
+  --accent-blue: #4facfe;
+  --text-main: #e2e8f0;
+  --text-muted: #94a3b8;
+  --border-color: #1e293b;
+  --glow-shadow: 0 0 20px rgba(0, 242, 254, 0.15);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+/* Header Section */
+header {
+  background: linear-gradient(135deg, rgba(19, 27, 46, 0.95), rgba(11, 15, 25, 0.98)),
+              url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80');
+  background-size: cover;
+  background-position: center;
+  padding: 70px 20px 50px;
+  text-align: center;
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.profile-img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent-cyan);
+  box-shadow: var(--glow-shadow);
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.profile-img:hover {
+  transform: scale(1.05);
+}
+
+header h1 {
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  background: linear-gradient(90deg, #ffffff, var(--accent-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 8px;
+}
+
+header p {
+  font-size: 18px;
+  color: var(--accent-cyan);
+  margin-bottom: 25px;
+  font-weight: 500;
+}
+
+/* Header Buttons */
+.header-btns {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-main);
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: var(--accent-blue);
+  color: #fff;
+  border-color: var(--accent-blue);
+  box-shadow: var(--glow-shadow);
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  color: #fff;
+  border: none;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+/* Layout Container */
+section {
+  max-width: 1050px;
+  margin: auto;
+  padding: 45px 20px;
+}
+
+h2 {
+  font-size: 26px;
+  margin-bottom: 25px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+h2 i {
+  color: var(--accent-cyan);
+}
+
+h2::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-color);
+  margin-left: 15px;
+}
+
+.about {
+  background: var(--bg-card);
+  padding: 28px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  font-size: 16px;
+  color: var(--text-muted);
+}
+
+/* Skills Grid */
+.skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.skill {
+  background: var(--bg-card);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: left;
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.skill i {
+  font-size: 24px;
+  color: var(--accent-cyan);
+}
+
+.skill h3 {
+  font-size: 16px;
+  color: var(--text-main);
+}
+
+.skill:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-blue);
+  background: var(--bg-card-hover);
+}
+
+/* Projects Grid */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: var(--bg-card);
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card:hover {
+  border-color: var(--accent-cyan);
+  transform: translateY(-4px);
+  box-shadow: var(--glow-shadow);
+}
+
+.card h3 {
+  color: var(--accent-cyan);
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.card p {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background: rgba(0, 242, 254, 0.1);
+  color: var(--accent-cyan);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Contact & TryHackMe Badge Section */
+.contact-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.contact-card, .thm-badge-card {
+  background: var(--bg-card);
+  padding: 28px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+}
+
+.contact-list {
+  list-style: none;
+}
+
+.contact-list li {
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+}
+
+.contact-list i {
+  color: var(--accent-cyan);
+  font-size: 18px;
+  width: 24px;
+}
+
+.contact-list a {
+  color: var(--text-main);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.contact-list a:hover {
+  color: var(--accent-cyan);
+}
+
+.badge-tag {
+  background: #1e293b;
+  color: var(--accent-blue);
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 12px;
+  margin-left: auto;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 25px;
+  background: var(--bg-card);
+  margin-top: 50px;
+  border-top: 1px solid var(--border-color);
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+@media (max-width: 600px) {
+  header h1 { font-size: 32px; }
+  header p { font-size: 16px; }
+  .header-btns { flex-direction: column; }
+}
+</style>
 </head>
 <body>
 
 <header>
-<img class="profile-img" src="https://github.com/azeemcyber07.png" alt="Azeem Rasheed">
-<h1>Azeem Rasheed</h1>
-<p>BS Cyber Security Student | Future SOC Analyst</p>
-<a class="btn" href="https://github.com/azeemcyber07" target="_blank">GitHub Profile</a>
+  <img class="profile-img" src="https://github.com/azeemcyber07.png" alt="Azeem Rasheed">
+  <h1>Azeem Rasheed</h1>
+  <p>BS Cyber Security Student | Aspiring SOC Analyst</p>
+  
+  <div class="header-btns">
+    <a class="btn btn-primary" href="https://www.linkedin.com/in/azeemcyber07" target="_blank" rel="noopener">
+      <i class="fab fa-linkedin"></i> LinkedIn
+    </a>
+    <a class="btn" href="https://tryhackme.com/p/azeemcyber07" target="_blank" rel="noopener">
+      <i class="fas fa-user-shield"></i> TryHackMe
+    </a>
+    <a class="btn" href="https://github.com/azeemcyber07" target="_blank" rel="noopener">
+      <i class="fab fa-github"></i> GitHub Profile
+    </a>
+  </div>
 </header>
 
 <section>
-<h2>About Me</h2>
-<div class="about">
-<p>
-I am a BS Cyber Security student passionate about Networking,
-CCNA, GitHub, and Ethical Hacking.
-I enjoy learning new technologies and building practical projects.
-</p>
-</div>
+  <h2><i class="fas fa-user-check"></i> About Me</h2>
+  <div class="about">
+    <p>
+      I am an undergraduate Cyber Security student at the University of Central Punjab (UCP) with a strong passion for Network Security, Threat Analysis, and Security Operations Center (SOC) workflows. Actively honing my skills in hands-on labs, log analysis, and ethical hacking techniques to protect digital infrastructures.
+    </p>
+  </div>
 </section>
 
 <section>
-<h2>Skills</h2>
-<div class="skills">
-<div class="skill"><h3>Cyber Security</h3></div>
-<div class="skill"><h3>C++</h3></div>
-<div class="skill"><h3>Git & GitHub</h3></div>
-<div class="skill"><h3>Linux (Basics)</h3></div>
-<div class="skill"><h3>CCNA (Learning)</h3></div>
-<div class="skill"><h3>Networking</h3></div>
-</div>
+  <h2><i class="fas fa-laptop-code"></i> Core Skills</h2>
+  <div class="skills">
+    <div class="skill"><i class="fas fa-shield-halved"></i><h3>Cybersecurity Operations</h3></div>
+    <div class="skill"><i class="fas fa-network-wired"></i><h3>Networking & CCNA</h3></div>
+    <div class="skill"><i class="fas fa-terminal"></i><h3>Linux & Security Tools</h3></div>
+    <div class="skill"><i class="fas fa-code"></i><h3>C++ Programming</h3></div>
+    <div class="skill"><i class="fab fa-git-alt"></i><h3>Git & Version Control</h3></div>
+    <div class="skill"><i class="fas fa-search-dollar"></i><h3>Log Analysis & Threat Detection</h3></div>
+  </div>
 </section>
 
 <section>
-<h2>Projects</h2>
-<div class="projects">
+  <h2><i class="fas fa-folder-open"></i> Featured Projects</h2>
+  <div class="projects">
 
-<div class="card">
-<h3>Password Generator</h3>
-<p>A C++ password generator that creates strong random passwords.</p>
-</div>
+    <div class="card">
+      <div>
+        <h3>Password Security Generator</h3>
+        <p>A C++ application designed to generate cryptographically safe, random passwords based on user-defined security parameters.</p>
+      </div>
+      <div class="tags">
+        <span class="tag">C++</span>
+        <span class="tag">Security</span>
+        <span class="tag">Algorithms</span>
+      </div>
+    </div>
 
-<div class="card">
-<h3>Portfolio Website</h3>
-<p>My personal GitHub portfolio built using HTML and CSS.</p>
-</div>
+    <div class="card">
+      <div>
+        <h3>Cybersecurity Portfolio</h3>
+        <p>A responsive personal portfolio website showcasing hands-on labs, certifications, and security project deployments.</p>
+      </div>
+      <div class="tags">
+        <span class="tag">HTML5</span>
+        <span class="tag">CSS3</span>
+        <span class="tag">GitHub Pages</span>
+      </div>
+    </div>
 
-</div>
+  </div>
 </section>
 
 <section>
-<h2>Contact</h2>
-<div class="contact">
-<p><strong>Email:</strong> <a href="mailto:ah3892888@gmail.com">ah3892888@gmail.com</a></p>
-<p><strong>GitHub:</strong>
-<a href="https://github.com/azeemcyber07" target="_blank">
-github.com/azeemcyber07
-</a>
-</p>
-</div>
+  <h2><i class="fas fa-graduation-cap"></i> Education & Focus</h2>
+  <div class="about">
+    <h3 style="color:#fff; font-size:18px; margin-bottom:5px;">Bachelor of Science in Cyber Security</h3>
+    <p style="color:var(--accent-cyan); font-size:14px; margin-bottom:10px;">University of Central Punjab (UCP), Lahore</p>
+    <p>Focusing on computer networks, Networking and Linux basics, operating systems, and security operation.</p>
+  </div>
+</section>
+
+<section>
+  <h2><i class="fas fa-address-card"></i> Connect & Cyber Profiles</h2>
+  <div class="contact-container">
+    
+    <div class="contact-card">
+      <ul class="contact-list">
+        <li>
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:ah3892888@gmail.com">ah3892888@gmail.com</a>
+          <span class="badge-tag">Email</span>
+        </li>
+        <li>
+          <i class="fab fa-linkedin"></i>
+          <a href="https://www.linkedin.com/in/azeemcyber07" target="_blank" rel="noopener">linkedin.com/in/azeemcyber07</a>
+          <span class="badge-tag">LinkedIn</span>
+        </li>
+        <li>
+          <i class="fab fa-github"></i>
+          <a href="https://github.com/azeemcyber07" target="_blank" rel="noopener">github.com/azeemcyber07</a>
+          <span class="badge-tag">GitHub</span>
+        </li>
+        <li>
+          <i class="fas fa-flag"></i>
+          <a href="https://tryhackme.com/p/azeemcyber07" target="_blank" rel="noopener">tryhackme.com/p/azeemcyber07</a>
+          <span class="badge-tag">TryHackMe</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="thm-badge-card">
+      <h3 style="color:#fff; font-size:16px; margin-bottom:15px;"><i class="fas fa-medal" style="color:var(--accent-cyan);"></i> TryHackMe Live Badge</h3>
+      <iframe src="https://tryhackme.com/api/v2/badges/public-profile?user=azeemcyber07" style="border:none; width:100%; height:150px; border-radius:8px; background:#0b0f19;"></iframe>
+    </div>
+
+  </div>
 </section>
 
 <footer>
-<p>© 2026 Azeem Rasheed | All Rights Reserved</p>
+  <p>© 2026 Azeem Rasheed | Cybersecurity Portfolio</p>
 </footer>
 
 </body>
