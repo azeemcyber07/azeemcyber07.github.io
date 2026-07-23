@@ -3,68 +3,96 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Azeem Rasheed | Cybersecurity & SOC Analyst Portfolio</title>
+<title>Azeem Rasheed | Cybersecurity & Systems Portfolio</title>
 <meta name="google-site-verification" content="11lwcCAqtleg0olQEfAuu__Ml9If-L7WntBMcMas7Kw" />
-<!-- FontAwesome Icons for Security & Tech Badges -->
+<!-- FontAwesome Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
 :root {
-  --bg-main: #0b0f19;
-  --bg-card: #131b2e;
-  --bg-card-hover: #1c2742;
+  --bg-main: #0a0e17;
+  --bg-card: #111827;
+  --bg-card-hover: #1f2937;
   --accent-cyan: #00f2fe;
-  --accent-blue: #4facfe;
-  --text-main: #e2e8f0;
-  --text-muted: #94a3b8;
-  --border-color: #1e293b;
-  --glow-shadow: 0 0 20px rgba(0, 242, 254, 0.15);
+  --accent-blue: #3b82f6;
+  --accent-glow: rgba(0, 242, 254, 0.25);
+  --text-main: #f3f4f6;
+  --text-muted: #9ca3af;
+  --border-color: #1f2937;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-cyan);
 }
 
 body {
   background-color: var(--bg-main);
   color: var(--text-main);
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 /* Header Section */
 header {
-  background: linear-gradient(135deg, rgba(19, 27, 46, 0.95), rgba(11, 15, 25, 0.98)),
+  background: linear-gradient(135deg, rgba(17, 24, 39, 0.95), rgba(10, 14, 23, 0.98)),
               url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80');
   background-size: cover;
   background-position: center;
-  padding: 70px 20px 50px;
+  padding: 85px 20px 60px;
   text-align: center;
   border-bottom: 1px solid var(--border-color);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  position: relative;
+}
+
+header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
 }
 
 .profile-img {
-  width: 140px;
-  height: 140px;
+  width: 145px;
+  height: 145px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid var(--accent-cyan);
-  box-shadow: var(--glow-shadow);
+  box-shadow: 0 0 25px var(--accent-glow);
   margin-bottom: 20px;
-  transition: transform 0.3s ease;
+  transition: all 0.4s ease;
 }
 
 .profile-img:hover {
-  transform: scale(1.05);
+  transform: scale(1.08) rotate(2deg);
+  box-shadow: 0 0 35px rgba(0, 242, 254, 0.4);
 }
 
 header h1 {
-  font-size: 42px;
-  font-weight: 700;
+  font-size: 44px;
+  font-weight: 800;
   letter-spacing: 0.5px;
-  background: linear-gradient(90deg, #ffffff, var(--accent-cyan));
+  background: linear-gradient(90deg, #ffffff 30%, var(--accent-cyan));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 8px;
@@ -73,15 +101,16 @@ header h1 {
 header p {
   font-size: 18px;
   color: var(--accent-cyan);
-  margin-bottom: 25px;
+  margin-bottom: 28px;
   font-weight: 500;
+  letter-spacing: 0.5px;
 }
 
 /* Header Buttons */
 .header-btns {
   display: flex;
   justify-content: center;
-  gap: 12px;
+  gap: 14px;
   flex-wrap: wrap;
 }
 
@@ -89,159 +118,189 @@ header p {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 22px;
-  background: rgba(255, 255, 255, 0.05);
+  padding: 11px 24px;
+  background: rgba(255, 255, 255, 0.03);
   color: var(--text-main);
   text-decoration: none;
-  border-radius: 8px;
+  border-radius: 10px;
   font-weight: 600;
   font-size: 14px;
   border: 1px solid var(--border-color);
-  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn:hover {
   background: var(--accent-blue);
   color: #fff;
   border-color: var(--accent-blue);
-  box-shadow: var(--glow-shadow);
-  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+  transform: translateY(-3px);
 }
 
 .btn-primary {
-  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
   color: #fff;
   border: none;
+  box-shadow: 0 4px 15px rgba(0, 114, 255, 0.3);
 }
 
 .btn-primary:hover {
-  opacity: 0.9;
-  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(0, 198, 255, 0.5);
+  transform: translateY(-3px);
 }
 
 /* Layout Container */
 section {
   max-width: 1050px;
   margin: auto;
-  padding: 45px 20px;
+  padding: 50px 20px;
 }
 
 h2 {
   font-size: 26px;
-  margin-bottom: 25px;
+  margin-bottom: 28px;
   color: #fff;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 h2 i {
   color: var(--accent-cyan);
+  text-shadow: 0 0 10px var(--accent-glow);
 }
 
 h2::after {
   content: '';
   flex: 1;
   height: 1px;
-  background: var(--border-color);
+  background: linear-gradient(90deg, var(--border-color), transparent);
   margin-left: 15px;
 }
 
 .about {
   background: var(--bg-card);
-  padding: 28px;
-  border-radius: 12px;
+  padding: 30px;
+  border-radius: 14px;
   border: 1px solid var(--border-color);
   font-size: 16px;
   color: var(--text-muted);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Skills Grid */
 .skills {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
+  gap: 18px;
 }
 
 .skill {
   background: var(--bg-card);
-  padding: 20px;
-  border-radius: 10px;
+  padding: 22px;
+  border-radius: 12px;
   text-align: left;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid var(--border-color);
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
 }
 
 .skill i {
   font-size: 24px;
   color: var(--accent-cyan);
+  transition: transform 0.3s ease;
 }
 
 .skill h3 {
-  font-size: 16px;
+  font-size: 15px;
   color: var(--text-main);
+  font-weight: 600;
 }
 
 .skill:hover {
-  transform: translateY(-4px);
-  border-color: var(--accent-blue);
+  transform: translateY(-5px);
+  border-color: var(--accent-cyan);
   background: var(--bg-card-hover);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.skill:hover i {
+  transform: scale(1.2);
 }
 
 /* Projects Grid */
 .projects {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  gap: 22px;
 }
 
 .card {
   background: var(--bg-card);
-  padding: 24px;
-  border-radius: 12px;
+  padding: 26px;
+  border-radius: 14px;
   border: 1px solid var(--border-color);
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .card:hover {
-  border-color: var(--accent-cyan);
-  transform: translateY(-4px);
-  box-shadow: var(--glow-shadow);
+  border-color: rgba(0, 242, 254, 0.4);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 15px var(--accent-glow);
+}
+
+.card:hover::before {
+  opacity: 1;
 }
 
 .card h3 {
   color: var(--accent-cyan);
-  margin-bottom: 10px;
-  font-size: 18px;
+  margin-bottom: 12px;
+  font-size: 19px;
+  font-weight: 700;
 }
 
 .card p {
   color: var(--text-muted);
   font-size: 14px;
-  margin-bottom: 15px;
+  margin-bottom: 18px;
 }
 
 .project-link {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  margin-bottom: 15px;
+  margin-bottom: 16px;
   color: var(--accent-cyan);
   text-decoration: none;
   font-size: 13px;
   font-weight: 600;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .project-link:hover {
-  color: var(--accent-blue);
-  text-decoration: underline;
+  color: #38bdf8;
+  transform: translateX(4px);
 }
 
 .tags {
@@ -251,26 +310,28 @@ h2::after {
 }
 
 .tag {
-  background: rgba(0, 242, 254, 0.1);
+  background: rgba(0, 242, 254, 0.08);
   color: var(--accent-cyan);
-  padding: 4px 10px;
-  border-radius: 4px;
+  padding: 4px 12px;
+  border-radius: 6px;
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 600;
+  border: 1px solid rgba(0, 242, 254, 0.15);
 }
 
 /* Contact & TryHackMe Badge Section */
 .contact-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+  gap: 22px;
 }
 
 .contact-card, .thm-badge-card {
   background: var(--bg-card);
-  padding: 28px;
-  border-radius: 12px;
+  padding: 30px;
+  border-radius: 14px;
   border: 1px solid var(--border-color);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 .contact-list {
@@ -278,7 +339,7 @@ h2::after {
 }
 
 .contact-list li {
-  margin-bottom: 16px;
+  margin-bottom: 18px;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -305,24 +366,25 @@ h2::after {
   background: #1e293b;
   color: var(--accent-blue);
   font-size: 11px;
-  padding: 2px 8px;
+  padding: 3px 10px;
   border-radius: 12px;
   margin-left: auto;
+  font-weight: 600;
 }
 
 /* Footer */
 footer {
   text-align: center;
-  padding: 25px;
+  padding: 30px;
   background: var(--bg-card);
-  margin-top: 50px;
+  margin-top: 60px;
   border-top: 1px solid var(--border-color);
   color: var(--text-muted);
   font-size: 14px;
 }
 
 @media (max-width: 600px) {
-  header h1 { font-size: 32px; }
+  header h1 { font-size: 34px; }
   header p { font-size: 16px; }
   .header-btns { flex-direction: column; }
 }
@@ -360,12 +422,12 @@ footer {
 <section>
   <h2><i class="fas fa-laptop-code"></i> Core Skills</h2>
   <div class="skills">
-    <div class="skill"><i class="fas fa-shield-halved"></i><h3>Cybersecurity Operations</h3></div>
-    <div class="skill"><i class="fas fa-network-wired"></i><h3>Networking & CCNA</h3></div>
+    <div class="skill"><i class="fas fa-network-wired"></i><h3>Networking Basics</h3></div>
+    <div class="skill"><i class="fas fa-desktop"></i><h3>Operating Systems</h3></div>
     <div class="skill"><i class="fas fa-code"></i><h3>C++ Programming</h3></div>
     <div class="skill"><i class="fas fa-microchip"></i><h3>Hardware & Embedded C</h3></div>
     <div class="skill"><i class="fab fa-git-alt"></i><h3>Git & Version Control</h3></div>
-    <div class="skill"><i class="fas fa-search-dollar"></i><h3>Log Analysis & Threat Detection</h3></div>
+    <div class="skill"><i class="fas fa-brain"></i><h3>Problem Solving & Logic</h3></div>
   </div>
 </section>
 
@@ -426,6 +488,9 @@ footer {
       <div>
         <h3>Password Security Generator</h3>
         <p>A C++ application designed to generate cryptographically safe, random passwords based on user-defined security parameters.</p>
+        <a class="project-link" href="https://github.com/azeemcyber07/password-security-generator" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i> View Repository &rarr;
+        </a>
       </div>
       <div class="tags">
         <span class="tag">C++</span>
@@ -439,6 +504,9 @@ footer {
       <div>
         <h3>Cybersecurity Portfolio</h3>
         <p>A responsive personal portfolio website showcasing hands-on labs, certifications, and security project deployments.</p>
+        <a class="project-link" href="https://github.com/azeemcyber07/azeemcyber07.github.io" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i> View Repository &rarr;
+        </a>
       </div>
       <div class="tags">
         <span class="tag">HTML5</span>
@@ -501,5 +569,5 @@ footer {
 </footer>
 
 </body>
-  </html>
-  
+          </html>
+            
