@@ -9,22 +9,22 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
 :root {
-  --bg-main: #0a0e17;
-  --bg-card: #111827;
-  --bg-card-hover: #1f2937;
+  --bg-main: #07090e;
+  --bg-card: #0d121d;
+  --bg-card-hover: #131b2e;
   --accent-cyan: #00f2fe;
   --accent-blue: #3b82f6;
-  --accent-glow: rgba(0, 242, 254, 0.25);
-  --text-main: #f3f4f6;
-  --text-muted: #9ca3af;
-  --border-color: #1f2937;
+  --accent-glow: rgba(0, 242, 254, 0.3);
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --border-color: #1e293b;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+  font-family: 'Inter', 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
 }
 
 /* Custom Scrollbar */
@@ -51,11 +51,11 @@ body {
 
 /* Header Section */
 header {
-  background: linear-gradient(135deg, rgba(17, 24, 39, 0.95), rgba(10, 14, 23, 0.98)),
+  background: linear-gradient(135deg, rgba(13, 18, 29, 0.95), rgba(7, 9, 14, 0.98)),
               url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80');
   background-size: cover;
   background-position: center;
-  padding: 85px 20px 60px;
+  padding: 90px 20px 65px;
   text-align: center;
   border-bottom: 1px solid var(--border-color);
   position: relative;
@@ -67,32 +67,41 @@ header::after {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 60%;
-  height: 1px;
+  width: 70%;
+  height: 2px;
   background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
 }
 
+.profile-img-container {
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  margin-bottom: 22px;
+}
+
 .profile-img {
-  width: 145px;
-  height: 145px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid var(--accent-cyan);
-  box-shadow: 0 0 25px var(--accent-glow);
-  margin-bottom: 20px;
-  transition: all 0.4s ease;
+  box-shadow: 0 0 30px var(--accent-glow);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.profile-img:hover {
-  transform: scale(1.08) rotate(2deg);
-  box-shadow: 0 0 35px rgba(0, 242, 254, 0.4);
+/* Profile image active zoom-in state when clicked */
+.profile-img.zoomed {
+  transform: scale(1.35);
+  box-shadow: 0 0 50px rgba(0, 242, 254, 0.7);
+  border-color: #ffffff;
+  z-index: 100;
 }
 
 header h1 {
-  font-size: 44px;
+  font-size: 46px;
   font-weight: 800;
-  letter-spacing: 0.5px;
-  background: linear-gradient(90deg, #ffffff 30%, var(--accent-cyan));
+  letter-spacing: -0.5px;
+  background: linear-gradient(90deg, #ffffff 40%, var(--accent-cyan));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 8px;
@@ -101,7 +110,7 @@ header h1 {
 header p {
   font-size: 18px;
   color: var(--accent-cyan);
-  margin-bottom: 28px;
+  margin-bottom: 30px;
   font-weight: 500;
   letter-spacing: 0.5px;
 }
@@ -118,11 +127,11 @@ header p {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 11px 24px;
-  background: rgba(255, 255, 255, 0.03);
+  padding: 12px 26px;
+  background: rgba(255, 255, 255, 0.02);
   color: var(--text-main);
   text-decoration: none;
-  border-radius: 10px;
+  border-radius: 12px;
   font-weight: 600;
   font-size: 14px;
   border: 1px solid var(--border-color);
@@ -134,7 +143,7 @@ header p {
   background: var(--accent-blue);
   color: #fff;
   border-color: var(--accent-blue);
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 0 25px rgba(59, 130, 246, 0.5);
   transform: translateY(-3px);
 }
 
@@ -142,11 +151,11 @@ header p {
   background: linear-gradient(135deg, #00c6ff, #0072ff);
   color: #fff;
   border: none;
-  box-shadow: 0 4px 15px rgba(0, 114, 255, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 114, 255, 0.4);
 }
 
 .btn-primary:hover {
-  box-shadow: 0 6px 25px rgba(0, 198, 255, 0.5);
+  box-shadow: 0 6px 30px rgba(0, 198, 255, 0.6);
   transform: translateY(-3px);
 }
 
@@ -154,7 +163,7 @@ header p {
 section {
   max-width: 1050px;
   margin: auto;
-  padding: 50px 20px;
+  padding: 55px 20px;
 }
 
 h2 {
@@ -164,11 +173,12 @@ h2 {
   display: flex;
   align-items: center;
   gap: 12px;
+  font-weight: 700;
 }
 
 h2 i {
   color: var(--accent-cyan);
-  text-shadow: 0 0 10px var(--accent-glow);
+  text-shadow: 0 0 12px var(--accent-glow);
 }
 
 h2::after {
@@ -181,12 +191,12 @@ h2::after {
 
 .about {
   background: var(--bg-card);
-  padding: 30px;
-  border-radius: 14px;
+  padding: 32px;
+  border-radius: 16px;
   border: 1px solid var(--border-color);
   font-size: 16px;
   color: var(--text-muted);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
 }
 
 /* Skills Grid */
@@ -199,7 +209,7 @@ h2::after {
 .skill {
   background: var(--bg-card);
   padding: 22px;
-  border-radius: 12px;
+  border-radius: 14px;
   text-align: left;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid var(--border-color);
@@ -224,7 +234,7 @@ h2::after {
   transform: translateY(-5px);
   border-color: var(--accent-cyan);
   background: var(--bg-card-hover);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .skill:hover i {
@@ -240,8 +250,8 @@ h2::after {
 
 .card {
   background: var(--bg-card);
-  padding: 26px;
-  border-radius: 14px;
+  padding: 28px;
+  border-radius: 16px;
   border: 1px solid var(--border-color);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
@@ -266,7 +276,7 @@ h2::after {
 .card:hover {
   border-color: rgba(0, 242, 254, 0.4);
   transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 15px var(--accent-glow);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 20px var(--accent-glow);
 }
 
 .card:hover::before {
@@ -312,14 +322,14 @@ h2::after {
 .tag {
   background: rgba(0, 242, 254, 0.08);
   color: var(--accent-cyan);
-  padding: 4px 12px;
-  border-radius: 6px;
+  padding: 5px 12px;
+  border-radius: 8px;
   font-size: 12px;
   font-weight: 600;
   border: 1px solid rgba(0, 242, 254, 0.15);
 }
 
-/* Contact & TryHackMe Badge Section */
+/* Upgraded Contact & TryHackMe Section */
 .contact-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -329,53 +339,75 @@ h2::after {
 .contact-card, .thm-badge-card {
   background: var(--bg-card);
   padding: 30px;
-  border-radius: 14px;
+  border-radius: 16px;
   border: 1px solid var(--border-color);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  transition: border-color 0.3s ease;
+}
+
+.contact-card:hover, .thm-badge-card:hover {
+  border-color: rgba(0, 242, 254, 0.3);
 }
 
 .contact-list {
   list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
-.contact-list li {
-  margin-bottom: 18px;
+.contact-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--accent-cyan);
+  transform: translateX(4px);
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.15);
+}
+
+.contact-left {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 15px;
 }
 
-.contact-list i {
+.contact-item i {
   color: var(--accent-cyan);
   font-size: 18px;
   width: 24px;
+  text-align: center;
 }
 
-.contact-list a {
+.contact-text {
   color: var(--text-main);
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.contact-list a:hover {
-  color: var(--accent-cyan);
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .badge-tag {
-  background: #1e293b;
+  background: rgba(59, 130, 246, 0.1);
   color: var(--accent-blue);
   font-size: 11px;
-  padding: 3px 10px;
-  border-radius: 12px;
-  margin-left: auto;
+  padding: 4px 10px;
+  border-radius: 8px;
   font-weight: 600;
+  border: 1px solid rgba(59, 130, 246, 0.2);
 }
 
 /* Footer */
 footer {
   text-align: center;
-  padding: 30px;
+  padding: 35px;
   background: var(--bg-card);
   margin-top: 60px;
   border-top: 1px solid var(--border-color);
@@ -393,7 +425,9 @@ footer {
 <body>
 
 <header>
-  <img class="profile-img" src="https://github.com/azeemcyber07.png" alt="Azeem Rasheed">
+  <div class="profile-img-container" id="profileImgContainer" title="Click to zoom photo">
+    <img class="profile-img" id="profileImg" src="https://github.com/azeemcyber07.png" alt="Azeem Rasheed">
+  </div>
   <h1>Azeem Rasheed</h1>
   <p>BS Cyber Security Student | Aspiring SOC Analyst</p>
   
@@ -532,33 +566,44 @@ footer {
   <div class="contact-container">
     
     <div class="contact-card">
-      <ul class="contact-list">
-        <li>
-          <i class="fas fa-envelope"></i>
-          <a href="mailto:ah3892888@gmail.com">ah3892888@gmail.com</a>
+      <div class="contact-list">
+        <a class="contact-item" href="mailto:ah3892888@gmail.com">
+          <div class="contact-left">
+            <i class="fas fa-envelope"></i>
+            <span class="contact-text">ah3892888@gmail.com</span>
+          </div>
           <span class="badge-tag">Email</span>
-        </li>
-        <li>
-          <i class="fab fa-linkedin"></i>
-          <a href="https://www.linkedin.com/in/azeemcyber07" target="_blank" rel="noopener">linkedin.com/in/azeemcyber07</a>
+        </a>
+        
+        <a class="contact-item" href="https://www.linkedin.com/in/azeemcyber07" target="_blank" rel="noopener">
+          <div class="contact-left">
+            <i class="fab fa-linkedin"></i>
+            <span class="contact-text">linkedin.com/in/azeemcyber07</span>
+          </div>
           <span class="badge-tag">LinkedIn</span>
-        </li>
-        <li>
-          <i class="fab fa-github"></i>
-          <a href="https://github.com/azeemcyber07" target="_blank" rel="noopener">github.com/azeemcyber07</a>
+        </a>
+        
+        <a class="contact-item" href="https://github.com/azeemcyber07" target="_blank" rel="noopener">
+          <div class="contact-left">
+            <i class="fab fa-github"></i>
+            <span class="contact-text">github.com/azeemcyber07</span>
+          </div>
           <span class="badge-tag">GitHub</span>
-        </li>
-        <li>
-          <i class="fas fa-flag"></i>
-          <a href="https://tryhackme.com/p/azeemcyber07" target="_blank" rel="noopener">tryhackme.com/p/azeemcyber07</a>
+        </a>
+        
+        <a class="contact-item" href="https://tryhackme.com/p/azeemcyber07" target="_blank" rel="noopener">
+          <div class="contact-left">
+            <i class="fas fa-flag"></i>
+            <span class="contact-text">tryhackme.com/p/azeemcyber07</span>
+          </div>
           <span class="badge-tag">TryHackMe</span>
-        </li>
-      </ul>
+        </a>
+      </div>
     </div>
 
     <div class="thm-badge-card">
       <h3 style="color:#fff; font-size:16px; margin-bottom:15px;"><i class="fas fa-medal" style="color:var(--accent-cyan);"></i> TryHackMe Live Badge</h3>
-      <iframe src="https://tryhackme.com/api/v2/badges/public-profile?user=azeemcyber07" style="border:none; width:100%; height:150px; border-radius:8px; background:#0b0f19;"></iframe>
+      <iframe src="https://tryhackme.com/api/v2/badges/public-profile?user=azeemcyber07" style="border:none; width:100%; height:150px; border-radius:8px; background:#07090e;"></iframe>
     </div>
 
   </div>
@@ -568,6 +613,32 @@ footer {
   <p>© 2026 Azeem Rasheed | Cybersecurity Portfolio</p>
 </footer>
 
+<!-- JavaScript for Haptic Vibration & Profile Image Zoom -->
+<script>
+  // 1. Haptic Feedback (Vibration on click everywhere)
+  document.addEventListener('click', () => {
+    if ('vibrate' in navigator) {
+      navigator.vibrate(35); // 35ms light vibration pulse
+    }
+  });
+
+  // 2. Profile Photo Zoom on Click
+  const profileContainer = document.getElementById('profileImgContainer');
+  const profileImg = document.getElementById('profileImg');
+
+  profileContainer.addEventListener('click', (e) => {
+    e.stopPropagation(); // prevent triggering global vibration double-pulse if needed
+    profileImg.classList.toggle('zoomed');
+  });
+
+  // Click outside to close zoom state if zoomed
+  document.addEventListener('click', (e) => {
+    if (!profileContainer.contains(e.target)) {
+      profileImg.classList.remove('zoomed');
+    }
+  });
+</script>
+
 </body>
-          </html>
-            
+        </html>
+  
