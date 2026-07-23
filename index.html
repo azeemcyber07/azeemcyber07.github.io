@@ -227,6 +227,23 @@ h2::after {
   margin-bottom: 15px;
 }
 
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 15px;
+  color: var(--accent-cyan);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.project-link:hover {
+  color: var(--accent-blue);
+  text-decoration: underline;
+}
+
 .tags {
   display: flex;
   gap: 8px;
@@ -345,8 +362,8 @@ footer {
   <div class="skills">
     <div class="skill"><i class="fas fa-shield-halved"></i><h3>Cybersecurity Operations</h3></div>
     <div class="skill"><i class="fas fa-network-wired"></i><h3>Networking & CCNA</h3></div>
-    <div class="skill"><i class="fas fa-terminal"></i><h3>Linux & Security Tools</h3></div>
     <div class="skill"><i class="fas fa-code"></i><h3>C++ Programming</h3></div>
+    <div class="skill"><i class="fas fa-microchip"></i><h3>Hardware & Embedded C</h3></div>
     <div class="skill"><i class="fab fa-git-alt"></i><h3>Git & Version Control</h3></div>
     <div class="skill"><i class="fas fa-search-dollar"></i><h3>Log Analysis & Threat Detection</h3></div>
   </div>
@@ -356,6 +373,55 @@ footer {
   <h2><i class="fas fa-folder-open"></i> Featured Projects</h2>
   <div class="projects">
 
+    <!-- Inventory Management System -->
+    <div class="card">
+      <div>
+        <h3>Inventory Management System</h3>
+        <p>A C++ console application designed to efficiently track stock levels, add/update products, and manage records with structured data logic.</p>
+        <a class="project-link" href="https://github.com/azeemcyber07/inventory-management-system" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i> View Repository &rarr;
+        </a>
+      </div>
+      <div class="tags">
+        <span class="tag">C++</span>
+        <span class="tag">Data Structures</span>
+        <span class="tag">CLI</span>
+      </div>
+    </div>
+
+    <!-- Automatic Staircase Light -->
+    <div class="card">
+      <div>
+        <h3>Automatic Staircase Light</h3>
+        <p>An automated embedded hardware system powered by Arduino and motion sensors to detect presence and smartly control lighting sequences.</p>
+        <a class="project-link" href="https://github.com/azeemcyber07/automatic-staircase-light-arduino" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i> View Repository &rarr;
+        </a>
+      </div>
+      <div class="tags">
+        <span class="tag">Arduino</span>
+        <span class="tag">Embedded Systems</span>
+        <span class="tag">C++</span>
+      </div>
+    </div>
+
+    <!-- ATM Management System -->
+    <div class="card">
+      <div>
+        <h3>ATM Management System</h3>
+        <p>A secure C++ ATM simulator featuring PIN authentication, balance check, robust input validation against invalid/negative values, and deposit/withdraw functions.</p>
+        <a class="project-link" href="https://github.com/azeemcyber07/atm-management-system" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i> View Repository &rarr;
+        </a>
+      </div>
+      <div class="tags">
+        <span class="tag">C++</span>
+        <span class="tag">Validation Logic</span>
+        <span class="tag">Security</span>
+      </div>
+    </div>
+
+    <!-- Password Security Generator -->
     <div class="card">
       <div>
         <h3>Password Security Generator</h3>
@@ -368,6 +434,7 @@ footer {
       </div>
     </div>
 
+    <!-- Cybersecurity Portfolio -->
     <div class="card">
       <div>
         <h3>Cybersecurity Portfolio</h3>
@@ -388,7 +455,7 @@ footer {
   <div class="about">
     <h3 style="color:#fff; font-size:18px; margin-bottom:5px;">Bachelor of Science in Cyber Security</h3>
     <p style="color:var(--accent-cyan); font-size:14px; margin-bottom:10px;">University of Central Punjab (UCP), Lahore</p>
-    <p>Focusing on computer networks, Networking and Linux basics, operating systems, and security operation.</p>
+    <p>Focusing on computer networks, Networking basics, operating systems, and security operations.</p>
   </div>
 </section>
 
@@ -434,4 +501,5 @@ footer {
 </footer>
 
 </body>
-</html>
+  </html>
+  
