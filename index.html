@@ -238,19 +238,48 @@ h2::after {
   margin-left: 15px;
 }
 
-/* About Me Box - Centered Text & Interactive */
+/* About Me Box - Centered, Interactive & Rotating Border Light Animation */
+.about-glowing-wrapper {
+  position: relative;
+  border-radius: 22px;
+  padding: 2px; /* Border thickness */
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-glowing-wrapper:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 45px rgba(0, 242, 254, 0.25);
+}
+
+/* Rotating conic-gradient light animation */
+.about-glowing-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background: conic-gradient(from 0deg at 50% 50%, transparent 0deg, var(--accent-cyan) 90deg, var(--accent-purple) 180deg, transparent 270deg, transparent 360deg);
+  animation: rotateLight 4s linear infinite;
+}
+
+@keyframes rotateLight {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 .about {
+  position: relative;
   background: var(--bg-card);
   padding: 35px;
   border-radius: 20px;
-  border: 1px solid var(--border-color);
   font-size: 16px;
   color: var(--text-muted);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
   text-align: center; /* Centered text */
+  z-index: 1;
 }
 
-/* Interactive Card Effect for About & Education Sections */
+/* Interactive Card Effect for Education Section */
 .interactive-card {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
@@ -491,13 +520,14 @@ footer {
 </header>
 
 <section>
-  <!-- Updated proper Cybersecurity Icon for About Me -->
   <h2><i class="fas fa-user-shield"></i> About Me</h2>
-  <!-- Centered text and interactive-card class added for vibration/hover -->
-  <div class="about interactive-card">
-    <p>
-      I am an undergraduate Cyber Security student at the University of Central Punjab (UCP) with a strong passion for Network Security, Threat Analysis, and Security Operations Center (SOC) workflows. Actively honing my skills in hands-on labs, log analysis, and ethical hacking techniques to protect digital infrastructures.
-    </p>
+  <!-- About Me Box with Rotating Circle Border Light Animation & Centered Text -->
+  <div class="about-glowing-wrapper">
+    <div class="about">
+      <p>
+        I am an undergraduate Cyber Security student at the University of Central Punjab (UCP) with a strong passion for Network Security, Threat Analysis, and Security Operations Center (SOC) workflows. Actively honing my skills in hands-on labs, log analysis, and ethical hacking techniques to protect digital infrastructures.
+      </p>
+    </div>
   </div>
 </section>
 
@@ -629,17 +659,17 @@ footer {
 
 <!-- JavaScript for Targeted Haptic Vibration & Profile Zoom -->
 <script>
-  // All interactive elements that trigger vibration
-  const interactiveSelectors = 'a, .btn, .social-pill, .skill, .card, .interactive-card, .thm-badge-card, .profile-img-container, .profile-img';
+  // All interactive elements that trigger vibration (including profile photo container & img)
+  const interactiveSelectors = 'a, .btn, .social-pill, .skill, .card, .interactive-card, .thm-badge-card, .about-glowing-wrapper, .profile-img-container, .profile-img';
   
   document.addEventListener('click', (e) => {
     const target = e.target.closest(interactiveSelectors);
     if (target && 'vibrate' in navigator) {
-      navigator.vibrate([80, 40, 80]); // Double-pulse haptic feedback
+      navigator.vibrate([80, 40, 80]); // Haptic double-pulse vibration feedback
     }
   });
 
-  // Profile Photo Zoom functionality fixed securely
+  // Profile Photo Zoom functionality with dedicated event listening
   const profileContainer = document.getElementById('profileImgContainer');
   const profileImg = document.getElementById('profileImg');
 
@@ -657,5 +687,5 @@ footer {
 </script>
 
 </body>
-</html>
-
+  </html>
+  
