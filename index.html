@@ -287,28 +287,6 @@ h2::after {
   margin: 0 auto;
 }
 
-/* Education Card with Interactive Design */
-.education-card {
-  background: var(--bg-card);
-  padding: 35px;
-  border-radius: 20px;
-  border: 1px solid var(--border-color);
-  max-width: 800px;
-  margin: 0 auto;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
-  text-decoration: none;
-  display: block;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-}
-
-.education-card:hover {
-  border-color: var(--accent-cyan);
-  background: var(--bg-card-hover);
-  transform: translateY(-4px);
-  box-shadow: 0 12px 35px rgba(0, 242, 254, 0.15);
-}
-
 /* Skills Grid */
 .skills {
   display: grid;
@@ -353,7 +331,7 @@ h2::after {
   color: var(--accent-purple);
 }
 
-/* Projects Grid */
+/* Projects & Education Shared Card Style */
 .projects {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -442,6 +420,12 @@ h2::after {
   border: 1px solid rgba(0, 242, 254, 0.15);
 }
 
+/* Education Container Centered */
+.education-container {
+  display: flex;
+  justify-content: center;
+}
+
 /* TryHackMe Badge Section Layout */
 .contact-container {
   display: flex;
@@ -459,10 +443,30 @@ h2::after {
   text-align: center;
   transition: border-color 0.3s ease;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.thm-badge-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .thm-badge-card:hover {
   border-color: var(--border-hover);
+  transform: translateY(-6px);
+  box-shadow: 0 15px 40px rgba(0, 242, 254, 0.2);
+}
+
+.thm-badge-card:hover::before {
+  opacity: 1;
 }
 
 .thm-badge-wrapper {
@@ -649,12 +653,19 @@ footer {
 
 <section>
   <h2><i class="fas fa-graduation-cap"></i> Education & Focus</h2>
-  <!-- Education Card linked to UCP Official Facebook Page -->
-  <a class="education-card" href="https://www.facebook.com/ucpofficial" target="_blank" rel="noopener" title="Visit University of Central Punjab Facebook Page">
-    <h3 style="color:#fff; font-size:18px; margin-bottom:5px;">Bachelor of Science in Cyber Security</h3>
-    <p style="color:var(--accent-cyan); font-size:14px; margin-bottom:10px;">University of Central Punjab (UCP), Lahore <i class="fas fa-external-link-alt" style="font-size: 11px; margin-left: 4px;"></i></p>
-    <p style="color:var(--text-muted); font-size: 14px;">Focusing on computer networks, Networking basics, operating systems, and security operations.</p>
-  </a>
+  <div class="education-container">
+    <!-- Education Card Styled Like Projects -->
+    <div class="card" style="width: 100%; max-width: 800px;">
+      <div>
+        <h3>Bachelor of Science in Cyber Security</h3>
+        <p style="color:var(--accent-cyan); font-weight: 600; margin-bottom: 10px;">University of Central Punjab (UCP), Lahore</p>
+        <p>Focusing on computer networks, Networking basics, operating systems, and security operations.</p>
+        <a class="project-link" href="https://www.facebook.com/ucpofficial" target="_blank" rel="noopener">
+          <i class="fab fa-facebook"></i> Visit UCP Official Facebook Page &rarr;
+        </a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section>
@@ -678,7 +689,7 @@ footer {
 <!-- JavaScript for Instant Pointerdown Vibration & Profile Zoom -->
 <script>
   // Global vibration listener for all interactive elements
-  const interactiveSelectors = 'a, .btn, .social-pill, .skill, .card, .education-card, .thm-badge-card, .about-glowing-wrapper';
+  const interactiveSelectors = 'a, .btn, .social-pill, .skill, .card, .thm-badge-card, .about-glowing-wrapper';
   
   document.addEventListener('click', (e) => {
     const target = e.target.closest(interactiveSelectors);
