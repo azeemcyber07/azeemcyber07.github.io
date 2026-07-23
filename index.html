@@ -238,6 +238,7 @@ h2::after {
   margin-left: 15px;
 }
 
+/* About Me Box - Centered Text & Interactive */
 .about {
   background: var(--bg-card);
   padding: 35px;
@@ -246,9 +247,10 @@ h2::after {
   font-size: 16px;
   color: var(--text-muted);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  text-align: center; /* Centered text */
 }
 
-/* Interactive Card Effect for Education Section */
+/* Interactive Card Effect for About & Education Sections */
 .interactive-card {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
@@ -489,8 +491,10 @@ footer {
 </header>
 
 <section>
-  <h2><i class="fas fa-user-check"></i> About Me</h2>
-  <div class="about">
+  <!-- Updated proper Cybersecurity Icon for About Me -->
+  <h2><i class="fas fa-user-shield"></i> About Me</h2>
+  <!-- Centered text and interactive-card class added for vibration/hover -->
+  <div class="about interactive-card">
     <p>
       I am an undergraduate Cyber Security student at the University of Central Punjab (UCP) with a strong passion for Network Security, Threat Analysis, and Security Operations Center (SOC) workflows. Actively honing my skills in hands-on labs, log analysis, and ethical hacking techniques to protect digital infrastructures.
     </p>
@@ -598,7 +602,7 @@ footer {
 
 <section>
   <h2><i class="fas fa-graduation-cap"></i> Education & Focus</h2>
-  <div class="about interactive-card">
+  <div class="about interactive-card" style="text-align: left;">
     <h3 style="color:#fff; font-size:18px; margin-bottom:5px;">Bachelor of Science in Cyber Security</h3>
     <p style="color:var(--accent-cyan); font-size:14px; margin-bottom:10px;">University of Central Punjab (UCP), Lahore</p>
     <p>Focusing on computer networks, Networking basics, operating systems, and security operations.</p>
@@ -625,17 +629,17 @@ footer {
 
 <!-- JavaScript for Targeted Haptic Vibration & Profile Zoom -->
 <script>
-  // Elements that trigger haptic vibration
-  const interactiveSelectors = 'a, .btn, .social-pill, .skill, .card, .interactive-card, .thm-badge-card, .profile-img-container';
+  // All interactive elements that trigger vibration
+  const interactiveSelectors = 'a, .btn, .social-pill, .skill, .card, .interactive-card, .thm-badge-card, .profile-img-container, .profile-img';
   
   document.addEventListener('click', (e) => {
     const target = e.target.closest(interactiveSelectors);
     if (target && 'vibrate' in navigator) {
-      navigator.vibrate([80, 40, 80]); // Double-pulse vibration on valid interactive elements
+      navigator.vibrate([80, 40, 80]); // Double-pulse haptic feedback
     }
   });
 
-  // Extra Large Profile Photo Zoom & Interaction Fix
+  // Profile Photo Zoom functionality fixed securely
   const profileContainer = document.getElementById('profileImgContainer');
   const profileImg = document.getElementById('profileImg');
 
