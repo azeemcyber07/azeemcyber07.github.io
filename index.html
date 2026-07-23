@@ -441,10 +441,13 @@ h2::after {
   width: 100%;
   max-width: 450px;
   text-align: center;
-  transition: border-color 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .thm-badge-card::before {
@@ -461,8 +464,8 @@ h2::after {
 
 .thm-badge-card:hover {
   border-color: var(--border-hover);
-  transform: translateY(-6px);
-  box-shadow: 0 15px 40px rgba(0, 242, 254, 0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 242, 254, 0.2);
 }
 
 .thm-badge-card:hover::before {
@@ -654,13 +657,13 @@ footer {
 <section>
   <h2><i class="fas fa-graduation-cap"></i> Education & Focus</h2>
   <div class="education-container">
-    <!-- Education Card Styled Like Projects -->
-    <div class="card" style="width: 100%; max-width: 800px;">
+    <!-- Education Card: 1st Click Focuses/Selects, 2nd Click Opens Facebook -->
+    <div class="card ucp-card" style="width: 100%; max-width: 800px; cursor: pointer;">
       <div>
         <h3>Bachelor of Science in Cyber Security</h3>
         <p style="color:var(--accent-cyan); font-weight: 600; margin-bottom: 10px;">University of Central Punjab (UCP), Lahore</p>
         <p>Focusing on computer networks, Networking basics, operating systems, and security operations.</p>
-        <a class="project-link" href="https://www.facebook.com/ucpofficial" target="_blank" rel="noopener">
+        <a class="project-link ucp-link" href="https://www.facebook.com/ucpofficial" target="_blank" rel="noopener">
           <i class="fab fa-facebook"></i> Visit UCP Official Facebook Page &rarr;
         </a>
       </div>
@@ -686,9 +689,9 @@ footer {
   <p>© 2026 Azeem Rasheed | Cybersecurity Portfolio</p>
 </footer>
 
-<!-- JavaScript for Instant Pointerdown Vibration & Profile Zoom -->
+<!-- JavaScript for 2-Click Education Link Logic & Vibration -->
 <script>
-  // Global vibration listener for all interactive elements
+  // Global vibration listener for interactive elements
   const interactiveSelectors = 'a, .btn, .social-pill, .skill, .card, .thm-badge-card, .about-glowing-wrapper';
   
   document.addEventListener('click', (e) => {
@@ -715,14 +718,12 @@ footer {
     profileImg.classList.toggle('zoomed');
   });
 
-  // Click outside to close zoom state
   document.addEventListener('click', (e) => {
     if (!profileContainer.contains(e.target)) {
       profileImg.classList.remove('zoomed');
     }
   });
-</script>
 
-</body>
-</html>
-
+  // UCP Card Two-Click Logic (1st click selects/focuses card, 2nd click opens link)
+  const ucpCard = document.querySelector('.ucp-card');
+  const ucpLink = document.que
