@@ -84,6 +84,7 @@ header::after {
   position: relative;
   margin-bottom: 20px;
   z-index: 10;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .profile-img {
@@ -286,13 +287,22 @@ h2::after {
   margin: 0 auto;
 }
 
-/* Interactive Card Effect for Education Section */
-.interactive-card {
+/* Education Card with Interactive Design */
+.education-card {
+  background: var(--bg-card);
+  padding: 35px;
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  max-width: 800px;
+  margin: 0 auto;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
+  text-decoration: none;
+  display: block;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
 }
 
-.interactive-card:hover {
+.education-card:hover {
   border-color: var(--accent-cyan);
   background: var(--bg-card-hover);
   transform: translateY(-4px);
@@ -639,11 +649,12 @@ footer {
 
 <section>
   <h2><i class="fas fa-graduation-cap"></i> Education & Focus</h2>
-  <div class="about interactive-card" style="text-align: left; max-width: 800px; margin: 0 auto;">
+  <!-- Education Card linked to UCP Official Facebook Page -->
+  <a class="education-card" href="https://www.facebook.com/ucpofficial" target="_blank" rel="noopener" title="Visit University of Central Punjab Facebook Page">
     <h3 style="color:#fff; font-size:18px; margin-bottom:5px;">Bachelor of Science in Cyber Security</h3>
-    <p style="color:var(--accent-cyan); font-size:14px; margin-bottom:10px;">University of Central Punjab (UCP), Lahore</p>
-    <p style="text-align: left !important;">Focusing on computer networks, Networking basics, operating systems, and security operations.</p>
-  </div>
+    <p style="color:var(--accent-cyan); font-size:14px; margin-bottom:10px;">University of Central Punjab (UCP), Lahore <i class="fas fa-external-link-alt" style="font-size: 11px; margin-left: 4px;"></i></p>
+    <p style="color:var(--text-muted); font-size: 14px;">Focusing on computer networks, Networking basics, operating systems, and security operations.</p>
+  </a>
 </section>
 
 <section>
@@ -664,10 +675,10 @@ footer {
   <p>© 2026 Azeem Rasheed | Cybersecurity Portfolio</p>
 </footer>
 
-<!-- JavaScript for Vibration & Profile Zoom -->
+<!-- JavaScript for Instant Pointerdown Vibration & Profile Zoom -->
 <script>
-  // Global vibration listener for all interactive items
-  const interactiveSelectors = 'a, .btn, .social-pill, .skill, .card, .interactive-card, .thm-badge-card, .about-glowing-wrapper';
+  // Global vibration listener for all interactive elements
+  const interactiveSelectors = 'a, .btn, .social-pill, .skill, .card, .education-card, .thm-badge-card, .about-glowing-wrapper';
   
   document.addEventListener('click', (e) => {
     const target = e.target.closest(interactiveSelectors);
@@ -678,18 +689,18 @@ footer {
     }
   });
 
-  // Profile Photo Zoom & Dedicated Vibration Handler
+  // Profile Photo Zoom & Instant Pointerdown Vibration Handler
   const profileContainer = document.getElementById('profileImgContainer');
   const profileImg = document.getElementById('profileImg');
 
+  profileContainer.addEventListener('pointerdown', () => {
+    if ('vibrate' in navigator) {
+      try { navigator.vibrate([140, 70, 140]); } catch (err) {}
+    }
+  });
+
   profileContainer.addEventListener('click', (e) => {
     e.stopPropagation();
-    
-    // Explicit vibration for profile photo
-    if ('vibrate' in navigator) {
-      try { navigator.vibrate([120, 60, 120]); } catch (err) {}
-    }
-    
     profileImg.classList.toggle('zoomed');
   });
 
@@ -703,3 +714,4 @@ footer {
 
 </body>
 </html>
+
