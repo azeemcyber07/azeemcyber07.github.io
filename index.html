@@ -9,15 +9,17 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
 :root {
-  --bg-main: #07090e;
-  --bg-card: #0d121d;
-  --bg-card-hover: #131b2e;
+  --bg-main: #030712;
+  --bg-card: #0b0f19;
+  --bg-card-hover: #111827;
   --accent-cyan: #00f2fe;
+  --accent-purple: #a855f7;
   --accent-blue: #3b82f6;
-  --accent-glow: rgba(0, 242, 254, 0.3);
+  --accent-glow: rgba(0, 242, 254, 0.4);
   --text-main: #f8fafc;
   --text-muted: #94a3b8;
-  --border-color: #1e293b;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(0, 242, 254, 0.4);
 }
 
 * {
@@ -29,14 +31,14 @@
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 ::-webkit-scrollbar-track {
   background: var(--bg-main);
 }
 ::-webkit-scrollbar-thumb {
   background: #1e293b;
-  border-radius: 4px;
+  border-radius: 5px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent-cyan);
@@ -47,15 +49,18 @@ body {
   color: var(--text-main);
   line-height: 1.6;
   overflow-x: hidden;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(0, 242, 254, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(168, 85, 247, 0.04) 0%, transparent 40%);
 }
 
 /* Header Section */
 header {
-  background: linear-gradient(135deg, rgba(13, 18, 29, 0.95), rgba(7, 9, 14, 0.98)),
+  background: linear-gradient(135deg, rgba(11, 15, 25, 0.95), rgba(3, 7, 18, 0.98)),
               url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80');
   background-size: cover;
   background-position: center;
-  padding: 90px 20px 65px;
+  padding: 100px 20px 75px;
   text-align: center;
   border-bottom: 1px solid var(--border-color);
   position: relative;
@@ -67,51 +72,54 @@ header::after {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 70%;
+  width: 80%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+  background: linear-gradient(90deg, transparent, var(--accent-cyan), var(--accent-purple), transparent);
 }
 
+/* Profile Photo Zoom Wrapper & Container */
 .profile-img-container {
   display: inline-block;
   cursor: pointer;
   position: relative;
-  margin-bottom: 22px;
+  margin-bottom: 25px;
+  z-index: 10;
 }
 
 .profile-img {
-  width: 150px;
-  height: 150px;
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid var(--accent-cyan);
-  box-shadow: 0 0 30px var(--accent-glow);
-  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 0 35px var(--accent-glow);
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.5s ease, border-color 0.5s ease;
 }
 
-/* Profile image active zoom-in state when clicked */
+/* Stunning Extra Large Zoom State */
 .profile-img.zoomed {
-  transform: scale(1.35);
-  box-shadow: 0 0 50px rgba(0, 242, 254, 0.7);
+  transform: scale(1.65);
+  box-shadow: 0 0 70px rgba(0, 242, 254, 0.8), 0 0 100px rgba(168, 85, 247, 0.4);
   border-color: #ffffff;
-  z-index: 100;
+  z-index: 1000;
 }
 
 header h1 {
-  font-size: 46px;
+  font-size: 50px;
   font-weight: 800;
   letter-spacing: -0.5px;
-  background: linear-gradient(90deg, #ffffff 40%, var(--accent-cyan));
+  background: linear-gradient(90deg, #ffffff 30%, var(--accent-cyan), var(--accent-purple));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+  text-shadow: 0 0 40px rgba(0, 242, 254, 0.2);
 }
 
 header p {
-  font-size: 18px;
+  font-size: 19px;
   color: var(--accent-cyan);
-  margin-bottom: 30px;
-  font-weight: 500;
+  margin-bottom: 32px;
+  font-weight: 600;
   letter-spacing: 0.5px;
 }
 
@@ -119,107 +127,111 @@ header p {
 .header-btns {
   display: flex;
   justify-content: center;
-  gap: 14px;
+  gap: 16px;
   flex-wrap: wrap;
 }
 
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 26px;
-  background: rgba(255, 255, 255, 0.02);
+  gap: 10px;
+  padding: 13px 28px;
+  background: rgba(255, 255, 255, 0.03);
   color: var(--text-main);
   text-decoration: none;
-  border-radius: 12px;
+  border-radius: 14px;
   font-weight: 600;
   font-size: 14px;
   border: 1px solid var(--border-color);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn:hover {
-  background: var(--accent-blue);
-  color: #fff;
-  border-color: var(--accent-blue);
-  box-shadow: 0 0 25px rgba(59, 130, 246, 0.5);
-  transform: translateY(-3px);
+  background: rgba(0, 242, 254, 0.1);
+  color: var(--accent-cyan);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 25px rgba(0, 242, 254, 0.3);
+  transform: translateY(-4px);
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #00c6ff, #0072ff);
-  color: #fff;
+  background: linear-gradient(135deg, #00f2fe, #3b82f6);
+  color: #030712;
   border: none;
-  box-shadow: 0 4px 20px rgba(0, 114, 255, 0.4);
+  font-weight: 700;
+  box-shadow: 0 4px 25px rgba(0, 242, 254, 0.4);
 }
 
 .btn-primary:hover {
-  box-shadow: 0 6px 30px rgba(0, 198, 255, 0.6);
-  transform: translateY(-3px);
+  background: linear-gradient(135deg, #3b82f6, #00f2fe);
+  color: #fff;
+  box-shadow: 0 6px 35px rgba(0, 242, 254, 0.6);
+  transform: translateY(-4px);
 }
 
 /* Layout Container */
 section {
   max-width: 1050px;
   margin: auto;
-  padding: 55px 20px;
+  padding: 60px 20px;
 }
 
 h2 {
-  font-size: 26px;
-  margin-bottom: 28px;
+  font-size: 28px;
+  margin-bottom: 30px;
   color: #fff;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   font-weight: 700;
 }
 
 h2 i {
   color: var(--accent-cyan);
-  text-shadow: 0 0 12px var(--accent-glow);
+  text-shadow: 0 0 15px var(--accent-glow);
 }
 
 h2::after {
   content: '';
   flex: 1;
   height: 1px;
-  background: linear-gradient(90deg, var(--border-color), transparent);
+  background: linear-gradient(90deg, var(--border-hover), transparent);
   margin-left: 15px;
 }
 
 .about {
   background: var(--bg-card);
-  padding: 32px;
-  border-radius: 16px;
+  padding: 35px;
+  border-radius: 20px;
   border: 1px solid var(--border-color);
   font-size: 16px;
   color: var(--text-muted);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
 }
 
 /* Skills Grid */
 .skills {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 18px;
+  gap: 20px;
 }
 
 .skill {
   background: var(--bg-card);
-  padding: 22px;
-  border-radius: 14px;
+  padding: 24px;
+  border-radius: 16px;
   text-align: left;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid var(--border-color);
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
 }
 
 .skill i {
-  font-size: 24px;
+  font-size: 26px;
   color: var(--accent-cyan);
   transition: transform 0.3s ease;
 }
@@ -231,27 +243,28 @@ h2::after {
 }
 
 .skill:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
   border-color: var(--accent-cyan);
   background: var(--bg-card-hover);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 12px 35px rgba(0, 242, 254, 0.15);
 }
 
 .skill:hover i {
-  transform: scale(1.2);
+  transform: scale(1.25) rotate(5deg);
+  color: var(--accent-purple);
 }
 
 /* Projects Grid */
 .projects {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
-  gap: 22px;
+  gap: 24px;
 }
 
 .card {
   background: var(--bg-card);
-  padding: 28px;
-  border-radius: 16px;
+  padding: 30px;
+  border-radius: 20px;
   border: 1px solid var(--border-color);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
@@ -267,16 +280,16 @@ h2::after {
   top: 0;
   left: 0;
   width: 100%;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
 .card:hover {
-  border-color: rgba(0, 242, 254, 0.4);
-  transform: translateY(-6px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 20px var(--accent-glow);
+  border-color: var(--border-hover);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 242, 254, 0.2);
 }
 
 .card:hover::before {
@@ -285,22 +298,22 @@ h2::after {
 
 .card h3 {
   color: var(--accent-cyan);
-  margin-bottom: 12px;
-  font-size: 19px;
+  margin-bottom: 14px;
+  font-size: 20px;
   font-weight: 700;
 }
 
 .card p {
   color: var(--text-muted);
   font-size: 14px;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 
 .project-link {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  margin-bottom: 16px;
+  gap: 8px;
+  margin-bottom: 18px;
   color: var(--accent-cyan);
   text-decoration: none;
   font-size: 13px;
@@ -309,8 +322,8 @@ h2::after {
 }
 
 .project-link:hover {
-  color: #38bdf8;
-  transform: translateX(4px);
+  color: var(--accent-purple);
+  transform: translateX(6px);
 }
 
 .tags {
@@ -320,10 +333,10 @@ h2::after {
 }
 
 .tag {
-  background: rgba(0, 242, 254, 0.08);
+  background: rgba(0, 242, 254, 0.06);
   color: var(--accent-cyan);
-  padding: 5px 12px;
-  border-radius: 8px;
+  padding: 6px 14px;
+  border-radius: 10px;
   font-size: 12px;
   font-weight: 600;
   border: 1px solid rgba(0, 242, 254, 0.15);
@@ -333,37 +346,37 @@ h2::after {
 .contact-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 22px;
+  gap: 24px;
 }
 
 .contact-card, .thm-badge-card {
   background: var(--bg-card);
-  padding: 30px;
-  border-radius: 16px;
+  padding: 35px;
+  border-radius: 20px;
   border: 1px solid var(--border-color);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
   transition: border-color 0.3s ease;
 }
 
 .contact-card:hover, .thm-badge-card:hover {
-  border-color: rgba(0, 242, 254, 0.3);
+  border-color: var(--border-hover);
 }
 
 .contact-list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
 }
 
 .contact-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 16px;
+  padding: 14px 18px;
   background: rgba(255, 255, 255, 0.01);
   border: 1px solid var(--border-color);
-  border-radius: 12px;
+  border-radius: 14px;
   text-decoration: none;
   transition: all 0.3s ease;
 }
@@ -371,20 +384,20 @@ h2::after {
 .contact-item:hover {
   background: var(--bg-card-hover);
   border-color: var(--accent-cyan);
-  transform: translateX(4px);
-  box-shadow: 0 0 15px rgba(0, 242, 254, 0.15);
+  transform: translateX(6px);
+  box-shadow: 0 0 20px rgba(0, 242, 254, 0.2);
 }
 
 .contact-left {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
 }
 
 .contact-item i {
   color: var(--accent-cyan);
-  font-size: 18px;
-  width: 24px;
+  font-size: 20px;
+  width: 26px;
   text-align: center;
 }
 
@@ -395,28 +408,28 @@ h2::after {
 }
 
 .badge-tag {
-  background: rgba(59, 130, 246, 0.1);
-  color: var(--accent-blue);
+  background: rgba(168, 85, 247, 0.1);
+  color: var(--accent-purple);
   font-size: 11px;
-  padding: 4px 10px;
-  border-radius: 8px;
+  padding: 5px 12px;
+  border-radius: 10px;
   font-weight: 600;
-  border: 1px solid rgba(59, 130, 246, 0.2);
+  border: 1px solid rgba(168, 85, 247, 0.25);
 }
 
 /* Footer */
 footer {
   text-align: center;
-  padding: 35px;
+  padding: 40px;
   background: var(--bg-card);
-  margin-top: 60px;
+  margin-top: 70px;
   border-top: 1px solid var(--border-color);
   color: var(--text-muted);
   font-size: 14px;
 }
 
 @media (max-width: 600px) {
-  header h1 { font-size: 34px; }
+  header h1 { font-size: 36px; }
   header p { font-size: 16px; }
   .header-btns { flex-direction: column; }
 }
@@ -425,7 +438,7 @@ footer {
 <body>
 
 <header>
-  <div class="profile-img-container" id="profileImgContainer" title="Click to zoom photo">
+  <div class="profile-img-container" id="profileImgContainer" title="Click to zoom profile photo">
     <img class="profile-img" id="profileImg" src="https://github.com/azeemcyber07.png" alt="Azeem Rasheed">
   </div>
   <h1>Azeem Rasheed</h1>
@@ -603,7 +616,7 @@ footer {
 
     <div class="thm-badge-card">
       <h3 style="color:#fff; font-size:16px; margin-bottom:15px;"><i class="fas fa-medal" style="color:var(--accent-cyan);"></i> TryHackMe Live Badge</h3>
-      <iframe src="https://tryhackme.com/api/v2/badges/public-profile?user=azeemcyber07" style="border:none; width:100%; height:150px; border-radius:8px; background:#07090e;"></iframe>
+      <iframe src="https://tryhackme.com/api/v2/badges/public-profile?user=azeemcyber07" style="border:none; width:100%; height:150px; border-radius:10px; background:#030712;"></iframe>
     </div>
 
   </div>
@@ -613,25 +626,25 @@ footer {
   <p>© 2026 Azeem Rasheed | Cybersecurity Portfolio</p>
 </footer>
 
-<!-- JavaScript for Haptic Vibration & Profile Image Zoom -->
+<!-- JavaScript for Strong Haptic Vibration & Large Profile Zoom -->
 <script>
-  // 1. Haptic Feedback (Vibration on click everywhere)
+  // 1. Stronger Haptic Feedback on Every Click
   document.addEventListener('click', () => {
     if ('vibrate' in navigator) {
-      navigator.vibrate(35); // 35ms light vibration pulse
+      navigator.vibrate(60); // Stronger 60ms pulse
     }
   });
 
-  // 2. Profile Photo Zoom on Click
+  // 2. Extra Large Profile Photo Zoom on Click
   const profileContainer = document.getElementById('profileImgContainer');
   const profileImg = document.getElementById('profileImg');
 
   profileContainer.addEventListener('click', (e) => {
-    e.stopPropagation(); // prevent triggering global vibration double-pulse if needed
+    e.stopPropagation();
     profileImg.classList.toggle('zoomed');
   });
 
-  // Click outside to close zoom state if zoomed
+  // Click outside to close zoom state
   document.addEventListener('click', (e) => {
     if (!profileContainer.contains(e.target)) {
       profileImg.classList.remove('zoomed');
@@ -640,5 +653,5 @@ footer {
 </script>
 
 </body>
-        </html>
+          </html>
   
