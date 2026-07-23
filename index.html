@@ -598,7 +598,6 @@ footer {
 
 <section>
   <h2><i class="fas fa-graduation-cap"></i> Education & Focus</h2>
-  <!-- Added interactive-card class here so it highlights on tap/hover -->
   <div class="about interactive-card">
     <h3 style="color:#fff; font-size:18px; margin-bottom:5px;">Bachelor of Science in Cyber Security</h3>
     <p style="color:var(--accent-cyan); font-size:14px; margin-bottom:10px;">University of Central Punjab (UCP), Lahore</p>
@@ -626,17 +625,17 @@ footer {
 
 <!-- JavaScript for Targeted Haptic Vibration & Profile Zoom -->
 <script>
-  // Targeted Haptic Vibration ONLY on Interactive Elements/Boxes
+  // Elements that trigger haptic vibration
   const interactiveSelectors = 'a, .btn, .social-pill, .skill, .card, .interactive-card, .thm-badge-card, .profile-img-container';
   
   document.addEventListener('click', (e) => {
     const target = e.target.closest(interactiveSelectors);
     if (target && 'vibrate' in navigator) {
-      navigator.vibrate([80, 40, 80]); // Double-pulse vibration only when a box/link is tapped
+      navigator.vibrate([80, 40, 80]); // Double-pulse vibration on valid interactive elements
     }
   });
 
-  // Extra Large Profile Photo Zoom on Click
+  // Extra Large Profile Photo Zoom & Interaction Fix
   const profileContainer = document.getElementById('profileImgContainer');
   const profileImg = document.getElementById('profileImg');
 
@@ -655,3 +654,4 @@ footer {
 
 </body>
 </html>
+
