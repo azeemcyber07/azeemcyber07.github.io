@@ -96,12 +96,12 @@ header::after {
   border: 3px solid var(--accent-cyan);
   box-shadow: 0 0 35px var(--accent-glow);
   transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-  pointer-events: none; /* Avoid event blocking */
+  pointer-events: none;
 }
 
 /* Large Zoom State */
 .profile-img-container.zoomed .profile-img {
-  transform: scale(2);
+  transform: scale(2.1);
   box-shadow: 0 0 80px rgba(0, 242, 254, 0.9), 0 0 120px rgba(168, 85, 247, 0.6);
   border-color: #ffffff;
 }
@@ -138,7 +138,7 @@ header::after {
   pointer-events: none;
 }
 
-/* Selected state for 1st Click */
+/* Selected State for 1st Click */
 .social-pill.selected {
   background: rgba(0, 242, 254, 0.2);
   border-color: var(--accent-cyan);
@@ -188,14 +188,19 @@ header p {
   border: 1px solid var(--border-color);
   backdrop-filter: blur(12px);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
 }
 
-.btn:hover {
-  background: rgba(0, 242, 254, 0.1);
-  color: var(--accent-cyan);
+.btn i {
+  pointer-events: none;
+}
+
+.btn.selected {
+  background: rgba(0, 242, 254, 0.2);
   border-color: var(--accent-cyan);
-  box-shadow: 0 0 25px rgba(0, 242, 254, 0.3);
-  transform: translateY(-4px);
+  color: #fff;
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 0 30px rgba(0, 242, 254, 0.5);
 }
 
 .btn-primary {
@@ -206,11 +211,10 @@ header p {
   box-shadow: 0 4px 25px rgba(0, 242, 254, 0.4);
 }
 
-.btn-primary:hover {
+.btn-primary.selected {
   background: linear-gradient(135deg, #3b82f6, #00f2fe);
   color: #fff;
-  box-shadow: 0 6px 35px rgba(0, 242, 254, 0.6);
-  transform: translateY(-4px);
+  box-shadow: 0 6px 35px rgba(0, 242, 254, 0.8);
 }
 
 /* Layout Container */
@@ -519,16 +523,16 @@ footer {
 
   <!-- Professional Quick Links Bar with 2-Click Logic -->
   <div class="profile-social-bar">
-    <a class="social-pill" data-href="mailto:ah3892888@gmail.com">
+    <a class="social-pill two-click-link" data-href="mailto:ah3892888@gmail.com">
       <i class="fas fa-envelope"></i> Email
     </a>
-    <a class="social-pill" data-href="https://www.linkedin.com/in/azeemcyber07" target="_blank">
+    <a class="social-pill two-click-link" data-href="https://www.linkedin.com/in/azeemcyber07" target="_blank">
       <i class="fab fa-linkedin"></i> LinkedIn
     </a>
-    <a class="social-pill" data-href="https://github.com/azeemcyber07" target="_blank">
+    <a class="social-pill two-click-link" data-href="https://github.com/azeemcyber07" target="_blank">
       <i class="fab fa-github"></i> GitHub
     </a>
-    <a class="social-pill" data-href="https://tryhackme.com/p/azeemcyber07" target="_blank">
+    <a class="social-pill two-click-link" data-href="https://tryhackme.com/p/azeemcyber07" target="_blank">
       <i class="fas fa-user-shield"></i> TryHackMe
     </a>
   </div>
@@ -536,11 +540,12 @@ footer {
   <h1>Azeem Rasheed</h1>
   <p>BS Cyber Security Student | Aspiring SOC Analyst</p>
   
+  <!-- Header Action Buttons with 2-Click Logic -->
   <div class="header-btns">
-    <a class="btn btn-primary" href="https://www.linkedin.com/in/azeemcyber07" target="_blank" rel="noopener">
+    <a class="btn btn-primary two-click-link" data-href="https://www.linkedin.com/in/azeemcyber07" target="_blank">
       <i class="fab fa-linkedin"></i> Connect on LinkedIn
     </a>
-    <a class="btn" href="https://github.com/azeemcyber07" target="_blank" rel="noopener">
+    <a class="btn two-click-link" data-href="https://github.com/azeemcyber07" target="_blank">
       <i class="fab fa-github"></i> Explore Repositories
     </a>
   </div>
@@ -687,16 +692,16 @@ footer {
 
 <!-- JavaScript Core Engine -->
 <script>
-  // Universal Vibration Engine
-  function hapticFeedback(pattern = [80]) {
+  // Universal Haptic Vibration Function
+  function vibrate(pattern = [80]) {
     if ('vibrate' in navigator) {
       try { navigator.vibrate(pattern); } catch (e) {}
     }
   }
 
-  // 1. Vibration Listener for Clicks
-  document.querySelectorAll('a, .btn, .skill, .card, .thm-badge-card, .about-glowing-wrapper').forEach(elem => {
-    elem.addEventListener('click', () => hapticFeedback([60]));
+  // 1. General Vibration Listener for interactive sections
+  document.querySelectorAll('.skill, .card, .thm-badge-card, .about-glowing-wrapper').forEach(elem => {
+    elem.addEventListener('click', () => vibrate([60]));
   });
 
   // 2. Profile Photo Zoom Logic
@@ -705,9 +710,10 @@ footer {
     profileBox.addEventListener('click', (e) => {
       e.stopPropagation();
       profileBox.classList.toggle('zoomed');
-      hapticFeedback([100, 40, 100]); // Heavy haptic response
+      vibrate([120, 50, 120]); // Heavy Vibration
     });
 
+    // Zoom-out when clicking anywhere outside
     document.addEventListener('click', (e) => {
       if (!profileBox.contains(e.target)) {
         profileBox.classList.remove('zoomed');
@@ -715,24 +721,49 @@ footer {
     });
   }
 
-  // 3. Two-Click Open Logic for Quick Links Bar
-  const socialPills = document.querySelectorAll('.social-pill');
-  socialPills.forEach(pill => {
-    pill.addEventListener('click', function(e) {
+  // 3. Two-Click Link Logic (Applies to Quick Links Bar AND Header Action Buttons)
+  const twoClickLinks = document.querySelectorAll('.two-click-link');
+  
+  twoClickLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
       e.preventDefault();
+      e.stopPropagation();
       
       if (this.classList.contains('selected')) {
-        // Second Click: Open the URL!
+        // Second Click -> Open Target URL!
         const targetUrl = this.getAttribute('data-href');
-        const target = this.getAttribute('target');
-        hapticFeedback([50, 50, 100]);
+        const isBlank = this.getAttribute('target') === '_blank';
         
-        if (target === '_blank') {
+        vibrate([50, 50, 100]); // Action vibration
+        
+        if (isBlank) {
           window.open(targetUrl, '_blank');
         } else {
           window.location.href = targetUrl;
         }
+        
         this.classList.remove('selected');
       } else {
-        // First Click: Select & Glow
-        socialPills.forEach(p => p.classList.remove('selec
+        // First Click -> Select & Glow
+        twoClickLinks.forEach(item => item.classList.remove('selected'));
+        this.classList.add('selected');
+        vibrate([80]); // Glow vibration
+      }
+    });
+  });
+
+  // Remove selection if user clicks anywhere else
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.two-click-link')) {
+      twoClickLinks.forEach(item => item.classList.remove('selected'));
+    }
+  });
+</script>
+
+</body>
+</html>
+
+
+
+          
+ 
