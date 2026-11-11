@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Azeem Rasheed | Cybersecurity & Systems Portfolio</title>
 <meta name="google-site-verification" content="11lwcCAqtleg0olQEfAuu__Ml9If-L7WntBMcMas7Kw" />
-<!-- FontAwesome Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
 :root {
@@ -30,32 +30,21 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: var(--bg-main);
-}
-::-webkit-scrollbar-thumb {
-  background: #1e293b;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-cyan);
-}
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-main); }
+::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-cyan); }
 
 body {
   background-color: var(--bg-main);
   color: var(--text-main);
   line-height: 1.6;
   overflow-x: hidden;
-  background-image: 
+  background-image:
     radial-gradient(circle at 10% 20%, rgba(0, 242, 254, 0.08) 0%, transparent 40%),
     radial-gradient(circle at 90% 80%, rgba(168, 85, 247, 0.08) 0%, transparent 40%);
 }
 
-/* Header Section */
 header {
   background: linear-gradient(135deg, rgba(11, 15, 25, 0.95), rgba(3, 7, 18, 0.98)),
               url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80');
@@ -78,7 +67,6 @@ header::after {
   background: linear-gradient(90deg, transparent, var(--accent-cyan), var(--accent-purple), transparent);
 }
 
-/* Profile Photo Zoom Wrapper & Container */
 .profile-img-container {
   display: inline-block;
   cursor: pointer;
@@ -99,14 +87,12 @@ header::after {
   pointer-events: none;
 }
 
-/* Large Zoom State */
 .profile-img-container.zoomed .profile-img {
   transform: scale(2.1);
   box-shadow: 0 0 80px rgba(0, 242, 254, 0.9), 0 0 120px rgba(168, 85, 247, 0.6);
   border-color: #ffffff;
 }
 
-/* Professional Quick Links Bar */
 .profile-social-bar {
   display: flex;
   justify-content: center;
@@ -138,7 +124,6 @@ header::after {
   pointer-events: none;
 }
 
-/* Selected State for 1st Click */
 .social-pill.selected {
   background: rgba(0, 242, 254, 0.2);
   border-color: var(--accent-cyan);
@@ -166,7 +151,6 @@ header p {
   letter-spacing: 0.5px;
 }
 
-/* Header Action Buttons */
 .header-btns {
   display: flex;
   justify-content: center;
@@ -191,9 +175,7 @@ header p {
   cursor: pointer;
 }
 
-.btn i {
-  pointer-events: none;
-}
+.btn i { pointer-events: none; }
 
 .btn.selected {
   background: rgba(0, 242, 254, 0.2);
@@ -217,7 +199,6 @@ header p {
   box-shadow: 0 6px 35px rgba(0, 242, 254, 0.8);
 }
 
-/* Layout Container */
 section {
   max-width: 1050px;
   margin: auto;
@@ -247,7 +228,6 @@ h2::after {
   margin-left: 15px;
 }
 
-/* About Me Box - Rotating Light Animation */
 .about-glowing-wrapper {
   position: relative;
   border-radius: 22px;
@@ -294,7 +274,6 @@ h2::after {
   margin: 0 auto;
 }
 
-/* Skills Grid */
 .skills {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -338,7 +317,6 @@ h2::after {
   color: var(--accent-purple);
 }
 
-/* Projects & Education Shared Card Style */
 .projects {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -377,9 +355,7 @@ h2::after {
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 242, 254, 0.2);
 }
 
-.card:hover::before {
-  opacity: 1;
-}
+.card:hover::before { opacity: 1; }
 
 .card h3 {
   color: var(--accent-cyan);
@@ -427,13 +403,11 @@ h2::after {
   border: 1px solid rgba(0, 242, 254, 0.15);
 }
 
-/* Education Container Centered */
 .education-container {
   display: flex;
   justify-content: center;
 }
 
-/* TryHackMe Badge Section Layout */
 .contact-container {
   display: flex;
   justify-content: center;
@@ -475,9 +449,7 @@ h2::after {
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 242, 254, 0.2);
 }
 
-.thm-badge-card:hover::before {
-  opacity: 1;
-}
+.thm-badge-card:hover::before { opacity: 1; }
 
 .thm-badge-wrapper {
   display: flex;
@@ -492,7 +464,6 @@ h2::after {
   border-radius: 12px;
 }
 
-/* Footer */
 footer {
   text-align: center;
   padding: 40px;
@@ -516,12 +487,10 @@ footer {
 <body>
 
 <header>
-  <!-- Profile Photo Container -->
   <div class="profile-img-container" id="profileImgContainer" title="Click to zoom profile photo">
     <img class="profile-img" id="profileImg" src="https://github.com/azeemcyber07.png" alt="Azeem Rasheed">
   </div>
 
-  <!-- Professional Quick Links Bar with 2-Click Logic -->
   <div class="profile-social-bar">
     <a class="social-pill two-click-link" data-href="mailto:ah3892888@gmail.com">
       <i class="fas fa-envelope"></i> Email
@@ -539,8 +508,7 @@ footer {
 
   <h1>Azeem Rasheed</h1>
   <p>BS Cyber Security Student | Aspiring SOC Analyst</p>
-  
-  <!-- Header Action Buttons with 2-Click Logic -->
+
   <div class="header-btns">
     <a class="btn btn-primary two-click-link" data-href="https://www.linkedin.com/in/azeemcyber07" target="_blank">
       <i class="fab fa-linkedin"></i> Connect on LinkedIn
@@ -653,6 +621,23 @@ footer {
       </div>
     </div>
 
+    <!-- NEW SIXTH PROJECT: VEHICLE INSURANCE MANAGEMENT SYSTEM -->
+    <div class="card">
+      <div>
+        <h3>Vehicle Insurance Management System</h3>
+        <p>A C++ Object-Oriented Programming project designed to manage vehicle insurance policies, validate vehicle details, calculate minimum premiums, compare policies, and merge insurance policies.</p>
+        <a class="project-link" href="https://github.com/azeemcyber07/-Vehicle-Insurance-Management-System" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i> View Repository &rarr;
+        </a>
+      </div>
+      <div class="tags">
+        <span class="tag">C++</span>
+        <span class="tag">OOP</span>
+        <span class="tag">Constructors</span>
+        <span class="tag">Destructors</span>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -690,30 +675,25 @@ footer {
   <p>© 2026 Azeem Rasheed | Cybersecurity Portfolio</p>
 </footer>
 
-<!-- JavaScript Core Engine -->
 <script>
-  // Universal Haptic Vibration Function
   function vibrate(pattern = [80]) {
     if ('vibrate' in navigator) {
       try { navigator.vibrate(pattern); } catch (e) {}
     }
   }
 
-  // 1. General Vibration Listener for interactive sections
   document.querySelectorAll('.skill, .card, .thm-badge-card, .about-glowing-wrapper').forEach(elem => {
     elem.addEventListener('click', () => vibrate([60]));
   });
 
-  // 2. Profile Photo Zoom Logic
   const profileBox = document.getElementById('profileImgContainer');
   if (profileBox) {
     profileBox.addEventListener('click', (e) => {
       e.stopPropagation();
       profileBox.classList.toggle('zoomed');
-      vibrate([120, 50, 120]); // Heavy Vibration
+      vibrate([120, 50, 120]);
     });
 
-    // Zoom-out when clicking anywhere outside
     document.addEventListener('click', (e) => {
       if (!profileBox.contains(e.target)) {
         profileBox.classList.remove('zoomed');
@@ -721,38 +701,34 @@ footer {
     });
   }
 
-  // 3. Two-Click Link Logic (Applies to Quick Links Bar AND Header Action Buttons)
   const twoClickLinks = document.querySelectorAll('.two-click-link');
-  
+
   twoClickLinks.forEach(link => {
     link.addEventListener('click', function(e) {
       e.preventDefault();
       e.stopPropagation();
-      
+
       if (this.classList.contains('selected')) {
-        // Second Click -> Open Target URL!
         const targetUrl = this.getAttribute('data-href');
         const isBlank = this.getAttribute('target') === '_blank';
-        
-        vibrate([50, 50, 100]); // Action vibration
-        
+
+        vibrate([50, 50, 100]);
+
         if (isBlank) {
           window.open(targetUrl, '_blank');
         } else {
           window.location.href = targetUrl;
         }
-        
+
         this.classList.remove('selected');
       } else {
-        // First Click -> Select & Glow
         twoClickLinks.forEach(item => item.classList.remove('selected'));
         this.classList.add('selected');
-        vibrate([80]); // Glow vibration
+        vibrate([80]);
       }
     });
   });
 
-  // Remove selection if user clicks anywhere else
   document.addEventListener('click', (e) => {
     if (!e.target.closest('.two-click-link')) {
       twoClickLinks.forEach(item => item.classList.remove('selected'));
